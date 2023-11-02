@@ -12,33 +12,17 @@ int main(int argc, char* argv[]) {
   if (arguments.size() < 2) {
     std::cout << "error: you must supply at least one number\n";
     return 1;
-   }
-   std::string command{arguments.at(0)};
-   double sum{0.0};
-   int count{0};
- 
-   for (const std::string& argument : arguments) {
-     if (command == argument) {
-       command = "";
-      }
-  
-     try {
-        double value = std::stod(argument);
-        // converts string to double value using stod
-        sum += value;
- 
-    std::string command }
-    std::string command{arguments.at(0)};
-    double sum{0.0};
-    int count{0};
-  
-    for (const std::string& argument : arguments) {
-      if (command == argument) {
-        command = "";
-      }
-  
-      try {
+  }
+  std::string command{arguments.at(0)};
+  double sum{0.0};
+  int count{0};
 
+  for (const std::string& argument : arguments) {
+    if (command == argument) {
+      command = "";
+      continue;
+    }
+    try {
       double value = std::stod(argument);
       // converts string to double value using stod
       sum += value;
@@ -51,11 +35,10 @@ int main(int argc, char* argv[]) {
       std::cout << "argument out of range:" << argument << '\n';
     }
   }
-
   double average = sum / count;
   // average is equal to the sum of all the values, divided by the number of
   // values
-  std::cout << "average = " << average << '\n';
+  std::cout << " average = " << average << '\n';
 
   return 0;
 }

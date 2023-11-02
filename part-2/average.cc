@@ -24,20 +24,15 @@ int main(int argc, char* argv[]) {
     }
     try {
       double value = std::stod(argument);
-      // converts string to double value using stod
       sum += value;
       count++;
     } catch (const std::invalid_argument& e) {
-      // cannot be converted to a valid double
       std::cout << " invalid argument: " << argument << '\n';
     } catch (const std::out_of_range& e) {
-      // argument is too large
       std::cout << "argument out of range:" << argument << '\n';
     }
   }
   double average = sum / count;
-  // average is equal to the sum of all the values, divided by the number of
-  // values
   std::cout << " average = " << average << '\n';
 
   return 0;
